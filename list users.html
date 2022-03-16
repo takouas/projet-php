@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Liste utilisateur</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <!-- my css -->
+  <link rel="stylesheet" href="tableau.css">
+   <!-- fontawsom link -->
+
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" />
+  <!-- Bootstrap link -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+      <!-----------------------------------------navbar --------------- -->
+
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#"><img src ="./imge/logo.png" height="30px"></a>
+          </div>
+         
+          <div class="nav navbar-nav navbar-right">
+            
+          <button class="btn-user-cnx"><i class="fas fa-power-off"></i>Log Out</button>
+            
+        </div>
+      </nav> 
+      
+
+
+
+     <!-- box chercher  utilisateur -->
+<div class="container--interface-admine">
+  <center>
+    <div class="container-btn-search-admin">
+      <input type="text" class="form-control"  id="myInput" onkeyup="myFunction()" placeholder="chercher par Nom"/>
+        <button class="btn btn-search" type="button">
+          <i class="fa fa-search"></i>
+        </button>
+    </div>
+  </center>
+    <br/>
+    <!-- Liste utilisateur -->
+    <h2 class="titre-Liste-users">Liste utilisateur </h2>
+    <br/>
+  <table id="myTable">
+    
+      <thead>
+        <tr>
+          <th scope="col">Nom</th>
+          <th scope="col">prenom</th>
+          <th scope="col">email</th>
+          <th scope="col">supprimer</th>
+        </tr>
+      </thead>
+     <tbody>
+        <tr>
+          <td data-label="Nom" >saa</td>
+          <td data-label="prenom">takoua</td>
+          <td data-label="email">takoua@gmail.com</td>
+          <td data-label="supprimer"></td>
+        </tr>
+        <tr>
+          <td data-label="Nom" >meh</td>
+          <td data-label="prenom">mariem</td>
+          <td data-label="email">meriem@gmail.com</td>
+          <td data-label="supprimer">
+                         <!--------------------------------- delets  ----------------------------> 
+                      <!-- Button trigger modal -->
+                      <button type="button" class="btn " data-toggle="modal" data-target="#sup">
+                        <i class="fas fa-user-minus"></i>
+                   </button> 
+                        <!-- Modal -->
+                        <div class="modal fade" id="sup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog  modal-sm" role="document">
+                            <div class="modal-content">
+                              
+                              <div class="modal-body">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                <h5 class="modal-title" id="exampleModalLabel">etes vous sur de supprimer ?</h5>
+                                <br/> <br/> 
+                                <center>
+                                    <button>confirmer</button>
+                                </center>
+                             
+                             
+                            </div>
+                          </div>
+                        </div>
+                        
+                       </div>
+           </td>
+        </tr>
+        <tr>
+          <td data-label="Nom" >mou</td>
+          <td data-label="prenom">mouhamed</td>
+          <td data-label="email">mouhamed@gmail.com</td>
+          <td data-label="supprimer">
+            <!--------------------------------- delets  ----------------------------> 
+         <!-- Button trigger modal -->
+         <button type="button" class="btn " data-toggle="modal" data-target="#sup">
+           <i class="fas fa-user-minus"></i>
+      </button> 
+           <!-- Modal -->
+           <div class="modal fade" id="sup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+             <div class="modal-dialog  modal-sm" role="document">
+               <div class="modal-content">
+                 
+                 <div class="modal-body">
+                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                       <span aria-hidden="true">&times;</span>
+                     </button>
+                   <h5 class="modal-title" id="exampleModalLabel">etes vous sur de supprimer ?</h5>
+                   <br/> <br/> 
+                   <center>
+                       <button>confirmer</button>
+                   </center>
+                
+                
+               </div>
+             </div>
+           </div>
+           
+          </div>
+</td>
+        </tr>
+      </tbody>
+  </table>  
+</div>
+<script>
+  function myFunction() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }       
+    }
+  }
+  </script>
+</body>
+</html>
